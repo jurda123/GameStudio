@@ -151,3 +151,8 @@ where count = (select max(count) from (select count(*) count from game join comm
 --15.   Mená hráčov s počtom komentárov, ktoré pridali k hrám
 create view  uloha_15 as
 select player.name,count(*) as count from player join commentar on player.userid = commentar.userid group by player.name;
+
+
+--indexy
+CREATE INDEX IndexPlayerName ON player (name);
+CREATE INDEX IndexGameName ON game (name);
